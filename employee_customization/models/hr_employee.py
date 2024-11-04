@@ -10,12 +10,17 @@ class HREmployee(models.Model):
     def _compute_display_name(self):
         """Method to compute display name"""
         for rec in self:
+            # Check if "is_manager" is not in context
+            is_manager = "is_manager" not in self._context
+            # Get params from context
+            params = self._context.get("params", {})
+            model = params.get("model")
+            module = self._context.get("module")
+            # Define the conditions for display name computation
             if (
-                "params" in self._context
-                and "model" in self._context.get("params")
-                and "is_manager" not in self._context
-                and self._context.get("params").get("model")
-                == "res.config.settings"
+                    (model == "res.config.settings" or module in [
+                        'general_settings', 'hr']) and
+                    is_manager
             ):
                 rec.display_name = f"{rec.name}"
             else:

@@ -3,8 +3,9 @@
 {
     "name": "Employee Customization",
     "version": "17.0.1.0.1",
-    "category": "hr",
-    "summary": "Employee Customization",
+    "category": "hr / hr_timesheet",
+    "summary": "To manage the employee timesheet and the new filtet to filter"
+               " the timesheet quarterly",
     "description": """
         Employee Customization
         ======================================

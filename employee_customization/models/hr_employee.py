@@ -18,9 +18,7 @@ class HREmployee(models.Model):
             module = self._context.get("module")
             # Define the conditions for display name computation
             if (
-                    (model == "res.config.settings" or module in [
-                        'general_settings', 'hr']) and
-                    is_manager
+                (model == "res.config.settings" or module) and is_manager
             ):
                 rec.display_name = f"{rec.name}"
             else:

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_employee_settings_ec" model="ir.ui.view">
+        <field name="name">hr.employee.settings.inherit.ec</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@name='employee_rights_setting_container']" position="inside">
+                <setting help="Select the assigned employee." title="Assigned Employee">
+                    <field name="employee_id" readonly="False"/>
+                </setting>
+                <setting help="Select the manager." title="Manager">
+                    <field name="manager_id" readonly="False" context="{'is_manager': True}"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_analytic_line_view_search_employee_customization" model="ir.ui.view">
+        <field name="name">account.analytic.line.search.employee.customization</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='month']" position="after">
+                <filter string="Q1" name="filter_q1"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y') + '-01-01'), ('date', '&lt;=', context_today().strftime('%Y') + '-03-31')]"/>
+                <filter string="Q2" name="filter_q2"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y') + '-04-01'), ('date', '&lt;=', context_today().strftime('%Y') + '-06-30')]"/>
+                <filter string="Q3" name="filter_q3"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y') + '-07-01'), ('date', '&lt;=', context_today().strftime('%Y') + '-09-30')]"/>
+                <filter string="Q4" name="filter_q4"
+                        domain="[('date', '&gt;=', context_today().strftime('%Y') + '-10-01'), ('date', '&lt;=', context_today().strftime('%Y') + '-12-31')]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
